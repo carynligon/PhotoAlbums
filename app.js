@@ -28,12 +28,16 @@ window.addEventListener('hashchange', function () {
   var index = location.hash.split('/')[1];
   if (location.hash === '#home') {
     console.log('home');
-  }
-  else if (index !== 'image'){
+  } else if (index !== 'image'){
   var dataToRender = data[Number(index)-1];
   renderContent(dataToRender);
   console.log(dataToRender);
-  }
+  // Need to target just image arrays to be able to manipulate the DOM for full-screen viewing:
+  // } else if (index === 'image') {
+  //   var imgIndex = location.hash.split('/')[2];
+  //   var imgArr = data[Number(index)-1].images[Number(imgIndex)-1];
+  //   renderImage(imgArr);
+  // }
 });
 
 function renderContent (whatContent) {

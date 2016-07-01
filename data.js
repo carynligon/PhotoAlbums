@@ -1,48 +1,48 @@
 var data = [
   {
     title: 'Naturey Things',
-    path: '#naturey_things',
+    path: '#naturey_things/1',
     id: 1,
     cover: 'images/nature/nature1.jpeg',
     images: [
       {
         name: 'Image 1',
-        path: '#naturey_things/image/1',
+        path: '#naturey_things/1/image/1',
         src: 'images/nature/nature1.jpeg',
         id: 1,
         description: 'An Image'
       },
       {
         name: 'Image 2',
-        path: '#naturey_things/image/2',
+        path: '#naturey_things/1/image/2',
         src: 'images/nature/nature2.jpeg',
         id: 2,
         description: 'An Image'
       },
       {
         name: 'Image 3',
-        path: '#naturey_things/image/3',
+        path: '#naturey_things/1/image/3',
         src: 'images/nature/nature3.jpeg',
         id: 3,
         description: 'An Image'
       },
       {
         name: 'Image 4',
-        path: '#naturey_things/image/4',
+        path: '#naturey_things/1/image/4',
         src: 'images/nature/nature4.jpeg',
         id: 4,
         description: 'An Image'
       },
       {
         name: 'Image 5',
-        path: '#naturey_things/image/5',
+        path: '#naturey_things/1/image/5',
         src: 'images/nature/nature5.jpeg',
         id: 5,
         description: 'An Image'
       },
       {
         name: 'Image 6',
-        path: '#naturey_things/image/6',
+        path: '#naturey_things/1/image/6',
         src: 'images/nature/nature6.jpeg',
         id: 6,
         description: 'An Image'
