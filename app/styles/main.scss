@@ -29,14 +29,18 @@ ul {
 #album-container {
   width: 80%;
   margin: 0 auto;
-  li {
+  a {
     display: inline-block;
+    text-decoration: none;
     margin: 20px;
     height: 350px;
     width: 27%;
-    overflow: hidden;
     border: 1px solid black;
+    overflow: hidden;
   }
+  li {
+    display: inline-block;
+    }
   img {
     width: auto;
     height: 250px;
