@@ -1,18 +1,12 @@
 header {
-  background: gray;
+  background: #eee;
+  border-bottom: #678;
   text-align: center; }
   header h1 {
     margin: 0;
-    padding: 2rem 0; }
-
-#album-navigation, #album-container {
-  float: left; }
-
-#album-navigation {
-  width: 20%;
-  margin-top: 7rem; }
-  #album-navigation a {
-    text-decoration: none; }
+    padding: 2rem 0;
+    font-family: avenir;
+    font-size: 3rem; }
 
 ul {
   list-style-type: none;
@@ -21,23 +15,46 @@ ul {
   text-align: center; }
 
 #album-container {
-  width: 80%;
+  width: 100%;
   margin: 0 auto; }
+  #album-container ul {
+    margin-top: 4rem; }
   #album-container a {
+    overflow: hidden;
     display: inline-block;
-    text-decoration: none;
-    margin: 20px;
-    height: 350px;
-    width: 27%;
-    border: 1px solid black;
-    overflow: hidden; }
-  #album-container li {
-    display: inline-block; }
+    text-decoration: none; }
   #album-container img {
     width: auto;
     height: 250px; }
 
+h2 {
+  font-family: avenir;
+  margin-left: 3%;
+  font-size: 3rem; }
+
+li {
+  margin: 20px;
+  height: 350px;
+  width: 25%;
+  border: 1px solid black;
+  display: inline-block;
+  overflow: hidden; }
+
+#image-preview li {
+  width: 20%; }
+
 .display-none {
   display: none; }
+
+.album-collapse {
+  height: 100px;
+  width: 100%;
+  margin: 0;
+  display: inline-block; }
+
+.navigation-collapse {
+  width: 25%;
+  float: left;
+  margin: 0; }
 
 /*# sourceMappingURL=main.css.map */

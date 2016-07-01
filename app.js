@@ -1,7 +1,9 @@
 var $navBar = $('nav');
 var $mainContainer = $('#album-container');
+var $albumPreview = $('#album-preview');
 var $imagePreview = $('#image-preview');
 var $h2 = $('h2');
+var $header = $('header');
 var $albumClass = $('.album-preview li');
 var $imgPreview = $('.img-preview');
 
@@ -12,27 +14,46 @@ $(document).ready(function () {
   location.hash = '#home';
 
   data.forEach(function(album, i) {
-    var $imageHtml = $('<a href="#>"<li><img src="#" /></li></a>');
-    var $albumTitle = $('<p>Album Name</p>');
-    $imagePreview.append($imageHtml);
-    $imageHtml.attr('href', data[i].path);
-    $imageHtml.children('img').attr('src', data[i].cover);
-    $imageHtml.append($albumTitle);
-    $albumTitle.text(data[i].title);
-    console.log(data);
+    var $imageHtml = $('<li><a href="#"><img src="#" /></a></li>');
+    var $title = $('<p>Album Name</p>');
+    $albumPreview.append($imageHtml);
+    $imageHtml.children('a').attr('href', data[i].path);
+    $imageHtml.children('a').children('img').attr('src', data[i].cover);
+    $imageHtml.append($title);
+    $title.text(data[i].title);
   });
 });
 
 window.addEventListener('hashchange', function () {
-  var index = location.hash.slice(6) - 1;
-  var dataToRender = data[index];
+  var index = location.hash.split('/')[1];
+  if (location.hash === '#home') {
+    console.log('home');
+  }
+  else if (index !== 'image'){
+  var dataToRender = data[Number(index)-1];
   renderContent(dataToRender);
   console.log(dataToRender);
+  }
 });
 
 function renderContent (whatContent) {
-  data.forEach(function(album, i) {
-    var $imgArr = album.images;
-    $imagePreview.children('img').attr('src', $imgArr[whatContent].path);
+  $imagePreview.html('');
+  $navBar.removeClass('display-none');
+  $h2.removeClass('display-none');
+  $header.addClass('display-none');
+  var imgArr = whatContent.images;
+  console.log(imgArr);
+
+  imgArr.forEach(function (image, i) {
+    $albumPreview.children('li').addClass('album-collapse');
+    $albumPreview.addClass('navigation-collapse');
+    var $imageHtml = $('<li><a href="#"><img src="#" /></a></li>');
+    var $imageId = ('#images');
+    var $title = $('<p>Album Name</p>');
+    $imagePreview.append($imageHtml);
+    $imageHtml.children('a').attr('href', imgArr[i].path);
+    $imageHtml.children('a').children('img').attr('src', imgArr[i].src);
+    $imageHtml.append($title);
+    $title.text(imgArr[i].name);
   });
 }
