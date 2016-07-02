@@ -27,6 +27,10 @@ ul {
     width: auto;
     height: 250px; }
 
+.zoomed-in {
+  height: 500px;
+  width: auto; }
+
 h2 {
   font-family: avenir;
   margin-left: 3%;
@@ -40,8 +44,12 @@ li {
   display: inline-block;
   overflow: hidden; }
 
-#image-preview li {
+.image {
   width: 20%; }
+
+.zoomed-in {
+  width: 70%;
+  height: 700px; }
 
 .display-none {
   display: none; }

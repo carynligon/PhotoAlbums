@@ -1,7 +1,7 @@
 var $navBar = $('nav');
 var $mainContainer = $('#album-container');
-var $albumPreview = $('#album-preview');
-var $imagePreview = $('#image-preview');
+var $albumPreview = $('.album-preview');
+var $imagePreview = $('.image-preview');
 var $h2 = $('h2');
 var $header = $('header');
 var $albumClass = $('.album-preview li');
@@ -32,12 +32,7 @@ window.addEventListener('hashchange', function () {
   var dataToRender = data[Number(index)-1];
   renderContent(dataToRender);
   console.log(dataToRender);
-  // Need to target just image arrays to be able to manipulate the DOM for full-screen viewing:
-  // } else if (index === 'image') {
-  //   var imgIndex = location.hash.split('/')[2];
-  //   var imgArr = data[Number(index)-1].images[Number(imgIndex)-1];
-  //   renderImage(imgArr);
-  // }
+}
 });
 
 function renderContent (whatContent) {
@@ -59,5 +54,15 @@ function renderContent (whatContent) {
     $imageHtml.children('a').children('img').attr('src', imgArr[i].src);
     $imageHtml.append($title);
     $title.text(imgArr[i].name);
+
+    var photoZoom = document.querySelectorAll('li');
+    photoZoom.forEach(function(click) {
+      $(click).click(function(evt) {
+          $(evt.target).parent('a').parent('li').addClass('zoomed-in');
+          console.log(evt.target);
+          $albumPreview.addClass('display-none');
+          $h2.text('New name');
+        });
+    });
   });
 }
