@@ -10,7 +10,6 @@ var $imgPreview = $('.img-preview');
 
 $(document).ready(function () {
   $h2.addClass('display-none');
-  $navBar.addClass('display-none');
   location.hash = '#home';
 
   data.forEach(function(album, i) {
@@ -30,7 +29,7 @@ window.addEventListener('hashchange', function () {
     console.log('home');
   } else if (location.hash.split('/')[2] !== 'image'){
   var dataToRender = data[Number(index)-1];
-  $navBar.removeClass('display-none');
+  $albumPreview.removeClass('display-none');
   renderContent(dataToRender);
   console.log(dataToRender);
 } else {
@@ -51,7 +50,7 @@ function renderContent (whatContent) {
   imgArr.forEach(function (image, i) {
     $albumPreview.children('li').addClass('album-collapse');
     $albumPreview.addClass('navigation-collapse');
-    var $imageHtml = $('<li><a href="#"><img src="#" /></a></li>');
+    var $imageHtml = $('<li class="image"><a href="#"><img src="#" /></a></li>');
     var $imageId = ('#images');
     var $title = $('<p>Album Name</p>');
     $imagePreview.append($imageHtml);
@@ -64,7 +63,8 @@ function renderContent (whatContent) {
 
     function zoom(click) {
       $(click).click(function(evt) {
-          $(evt.target).parent('a').parent('li').addClass('zoomed-in');
+          $(evt.target).parent('a').parent('li').addClass('zoomed-in').removeClass('image');
+          $('.image').addClass('icon');
           $albumPreview.addClass('display-none');
           console.log(evt.target);
           $header.removeClass('display-none');
