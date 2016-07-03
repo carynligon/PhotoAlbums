@@ -6,12 +6,13 @@ var $h2 = $('h2');
 var $header = $('header');
 var $albumClass = $('.album-preview li');
 var $imgPreview = $('.img-preview');
-var $zoomBtn = $('input');
+var $nextBtn = $('input#next');
+var $previousBtn = $('input#previous');
 
 // As soon as page loads, h2 and navigation buttons are hidden
 $(document).ready(function () {
   $h2.addClass('display-none');
-  $zoomBtn.addClass('display-none');
+  $('input').addClass('display-none');
   location.hash = '#home';
 
 // Creates li's for album preview buttons
@@ -36,7 +37,7 @@ window.addEventListener('hashchange', function () {
   console.log(dataToRender);
 } else {
   var photoZoom = document.querySelectorAll('li');
-  $zoomBtn.removeClass('display-none');
+  $('input').removeClass('display-none');
   photoZoom.forEach(zoom);
   }
 });
@@ -68,12 +69,29 @@ function renderContent (whatContent) {
 // viewing zoomed in image
     function zoom(click) {
       $(click).click(function(evt) {
+        console.log(evt);
           $(evt.target).parent('a').parent('li').addClass('zoomed-in').removeClass('image').removeClass('display-none');
           $('.image').addClass('display-none');
           $albumPreview.addClass('display-none');
-          console.log(evt.target);
           $header.removeClass('display-none');
           $h2.html('<h2><a href="#">Back to the album</a></h2>');
           $h2.children('h2').children('a').attr('href', (location.hash.split('/')[0] + '/' +  location.hash.split('/')[1]));
         });
     }
+
+
+    $nextBtn.click(function (evt) {
+      var $dataIndex = Number(location.hash.split('/')[1]) - 1;
+      var $imgIndex = Number(location.hash.split('/')[3]) - 1;
+      var $imgArr = data[$dataIndex].images;
+      $('.zoomed-in').children('a').children('img').attr('src', $imgArr[$imgIndex + 1].src);
+      location.hash = $imgArr[$imgIndex + 1].path;
+    });
+
+    $previousBtn.click(function (evt) {
+      var $dataIndex = Number(location.hash.split('/')[1]) - 1;
+      var $imgIndex = Number(location.hash.split('/')[3]) - 1;
+      var $imgArr = data[$dataIndex].images;
+      $('.zoomed-in').children('a').children('img').attr('src', $imgArr[$imgIndex - 1].src);
+      location.hash = $imgArr[$imgIndex - 1].path;
+    });
