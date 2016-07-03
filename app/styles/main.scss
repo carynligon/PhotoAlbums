@@ -62,8 +62,14 @@ li {
   .zoomed-in {
     width: 70%;
     height: 700px;
+    display: block;
+    margin: 0 auto;
   }
 
+  .icon {
+    width: 100px;
+    height: 100px;
+  }
 
 .display-none {
   display: none;
