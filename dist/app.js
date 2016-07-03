@@ -6,12 +6,15 @@ var $h2 = $('h2');
 var $header = $('header');
 var $albumClass = $('.album-preview li');
 var $imgPreview = $('.img-preview');
+var $zoomBtn = $('input');
 
-
+// As soon as page loads, h2 and navigation buttons are hidden
 $(document).ready(function () {
   $h2.addClass('display-none');
+  $zoomBtn.addClass('display-none');
   location.hash = '#home';
 
+// Creates li's for album preview buttons
   data.forEach(function(album, i) {
     var $imageHtml = $('<li><a href="#"><img src="#" /></a></li>');
     var $title = $('<p>Album Name</p>');
@@ -23,21 +26,22 @@ $(document).ready(function () {
   });
 });
 
+// Hashchange conditionals
 window.addEventListener('hashchange', function () {
   var index = location.hash.split('/')[1];
-  if (location.hash === '#home') {
-    console.log('home');
-  } else if (location.hash.split('/')[2] !== 'image'){
+  if (location.hash.split('/')[2] !== 'image' && location.hash !== '#home'){
   var dataToRender = data[Number(index)-1];
   $albumPreview.removeClass('display-none');
   renderContent(dataToRender);
   console.log(dataToRender);
 } else {
   var photoZoom = document.querySelectorAll('li');
+  $zoomBtn.removeClass('display-none');
   photoZoom.forEach(zoom);
   }
 });
 
+// Once you click on an album
 function renderContent (whatContent) {
   $imagePreview.html('');
   $h2.removeClass('display-none');
@@ -61,10 +65,11 @@ function renderContent (whatContent) {
   });
 }
 
+// viewing zoomed in image
     function zoom(click) {
       $(click).click(function(evt) {
-          $(evt.target).parent('a').parent('li').addClass('zoomed-in').removeClass('image');
-          $('.image').addClass('icon');
+          $(evt.target).parent('a').parent('li').addClass('zoomed-in').removeClass('image').removeClass('display-none');
+          $('.image').addClass('display-none');
           $albumPreview.addClass('display-none');
           console.log(evt.target);
           $header.removeClass('display-none');

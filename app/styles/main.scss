@@ -16,6 +16,7 @@ ul {
   padding: 0;
   margin: 0 auto;
   text-align: center;
+  position: relative;
 }
 
 #album-container {
@@ -29,15 +30,11 @@ ul {
     display: inline-block;
     text-decoration: none;
   }
-  img {
-    width: auto;
-    height: 250px;
-  }
 }
 
-.zoomed-in {
-  height: 500px;
-  width: auto;
+img {
+  width: 100%;
+  height: auto;
 }
 
 h2 {
@@ -48,7 +45,7 @@ h2 {
 
 li {
   margin: 20px;
-  height: 350px;
+  height: 250px;
   width: 25%;
   border: 1px solid black;
   display: inline-block;
@@ -61,14 +58,16 @@ li {
 
   .zoomed-in {
     width: 70%;
-    height: 700px;
+    height: 590px;
     display: block;
-    margin: 0 auto;
-  }
+    margin: 0 auto 5rem auto;
+}
+
 
   .icon {
     width: 100px;
     height: 100px;
+    display: inline-block;
   }
 
 .display-none {
