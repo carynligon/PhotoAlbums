@@ -55,9 +55,10 @@ li {
 
 .zoomed-in {
   width: 70%;
-  height: 590px;
+  height: auto;
   display: block;
-  margin: 0 auto 5rem auto; }
+  margin: 0 auto 5rem auto;
+  border: 0; }
 
 .icon {
   width: 100px;
@@ -99,14 +100,63 @@ input.hidden {
   float: right; }
 
 #next {
-  bottom: 17rem;
+  bottom: 20rem;
   left: 88%; }
 
 #previous {
-  bottom: 17rem;
+  bottom: 20rem;
   left: 2.5%; }
 
 .full-width {
   width: 100%; }
+
+@media screen and (max-width: 1050px) {
+  .image {
+    width: 47%; }
+
+  #next {
+    bottom: 18rem;
+    left: 88%; }
+
+  #previous {
+    bottom: 18rem;
+    left: 2.5%; } }
+@media screen and (max-width: 950px) {
+  li {
+    width: 40%; }
+
+  .image {
+    width: 95%; }
+
+  .navigation-collapse {
+    float: none;
+    width: 98%;
+    margin: 0 auto; }
+    .navigation-collapse .album-collapse {
+      width: 16%; }
+
+  #album-container .album-collapse p {
+    font-size: 0.8rem; }
+
+  .wrapper {
+    float: none;
+    margin: 0 auto; }
+
+  input {
+    font-size: 0.8rem;
+    width: 60px;
+    height: 25px;
+    text-align: center; }
+
+  #next {
+    bottom: 8rem;
+    left: 88%; }
+
+  #previous {
+    bottom: 8rem;
+    left: 2.5%; } }
+@media screen and (max-width: 600px) {
+  li {
+    width: 80%; } }
 
 /*# sourceMappingURL=main.css.map */
