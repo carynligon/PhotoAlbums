@@ -22,7 +22,7 @@ $(document).ready(function () {
     $albumPreview.append($imageHtml);
     $imageHtml.children('a').attr('href', data[i].path);
     $imageHtml.children('a').children('img').attr('src', data[i].cover);
-    $imageHtml.append($title);
+    $imageHtml.children('a').prepend($title);
     $title.text(data[i].title);
   });
 });
@@ -55,15 +55,13 @@ function renderContent (whatContent) {
 
   imgArr.forEach(function (image, i) {
     $albumPreview.children('li').addClass('album-collapse');
+    $albumPreview.children('li').children('a').children('img').addClass('display-none');
     $albumPreview.addClass('navigation-collapse');
     var $imageHtml = $('<li class="image"><a href="#"><img src="#" /></a></li>');
     var $imageId = ('#images');
-    var $title = $('<p>Album Name</p>');
     $imagePreview.append($imageHtml);
     $imageHtml.children('a').attr('href', imgArr[i].path);
     $imageHtml.children('a').children('img').attr('src', imgArr[i].src);
-    $imageHtml.append($title);
-    $title.text(imgArr[i].name);
   });
 }
 
@@ -71,7 +69,7 @@ function renderContent (whatContent) {
     function zoom(click) {
       $(click).click(function(evt) {
         console.log(evt);
-          $(evt.target).parent('a').parent('li').addClass('zoomed-in').removeClass('image').removeClass('display-none');
+          $(evt.target).parent('a').parent('.wrapper li').addClass('zoomed-in').removeClass('image').removeClass('display-none');
           $('.image').addClass('display-none');
           $('.wrapper').addClass('full-width');
           $('input').removeClass('hidden');
