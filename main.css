@@ -70,4 +70,25 @@ li {
   float: left;
   margin: 0; }
 
+input {
+  height: 75px;
+  width: 100px;
+  background: #fff;
+  border: 1px solid black;
+  position: absolute; }
+
+input.hidden {
+  display: none; }
+
+.wrapper {
+  position: relative; }
+
+#next {
+  bottom: 17rem;
+  left: 88%; }
+
+#previous {
+  bottom: 17rem;
+  left: 2.5%; }
+
 /*# sourceMappingURL=main.css.map */

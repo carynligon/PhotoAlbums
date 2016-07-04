@@ -12,7 +12,7 @@ var $previousBtn = $('input#previous');
 // As soon as page loads, h2 and navigation buttons are hidden
 $(document).ready(function () {
   $h2.addClass('display-none');
-  $('input').addClass('display-none');
+  $('input').addClass('hidden');
   location.hash = '#home';
 
 // Creates li's for album preview buttons
@@ -37,7 +37,7 @@ window.addEventListener('hashchange', function () {
   console.log(dataToRender);
 } else {
   var photoZoom = document.querySelectorAll('li');
-  $('input').removeClass('display-none');
+  $('input').removeClass('hidden');
   photoZoom.forEach(zoom);
   }
 });
