@@ -43,7 +43,8 @@ li {
   overflow: hidden; }
 
 .image {
-  width: 20%; }
+  width: 30%;
+  margin: 10px; }
 
 .zoomed-in {
   width: 70%;
@@ -81,7 +82,9 @@ input.hidden {
   display: none; }
 
 .wrapper {
-  position: relative; }
+  position: relative;
+  width: 75%;
+  float: right; }
 
 #next {
   bottom: 17rem;
@@ -90,5 +93,8 @@ input.hidden {
 #previous {
   bottom: 17rem;
   left: 2.5%; }
+
+.full-width {
+  width: 100%; }
 
 /*# sourceMappingURL=main.css.map */

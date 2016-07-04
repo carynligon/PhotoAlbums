@@ -32,12 +32,13 @@ window.addEventListener('hashchange', function () {
   var index = location.hash.split('/')[1];
   if (location.hash.split('/')[2] !== 'image' && location.hash !== '#home'){
   var dataToRender = data[Number(index)-1];
+  $('input').addClass('hidden');
+  $('.wrapper').removeClass('full-width');
   $albumPreview.removeClass('display-none');
   renderContent(dataToRender);
   console.log(dataToRender);
-} else {
+} else if (location.hash.split('/')[2] === 'image'){
   var photoZoom = document.querySelectorAll('li');
-  $('input').removeClass('hidden');
   photoZoom.forEach(zoom);
   }
 });
@@ -72,6 +73,8 @@ function renderContent (whatContent) {
         console.log(evt);
           $(evt.target).parent('a').parent('li').addClass('zoomed-in').removeClass('image').removeClass('display-none');
           $('.image').addClass('display-none');
+          $('.wrapper').addClass('full-width');
+          $('input').removeClass('hidden');
           $albumPreview.addClass('display-none');
           $header.removeClass('display-none');
           $h2.html('<h2><a href="#">Back to the album</a></h2>');
